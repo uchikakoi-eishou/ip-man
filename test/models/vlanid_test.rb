@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class VlanTest < ActiveSupport::TestCase
+class VlanidTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

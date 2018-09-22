@@ -2,14 +2,11 @@
   <div class="container">
     <% @posts.each do |post| %>
       <div class="posts-index-item">
-        ip_address
-        location
-        computer_name
-        user
-        <%= post.use %>
-      </div>
-      <div class="posts-index-item">
-        <%= @segment %>
+        <%= link_to(post.ip_address,     "/post/show/#{post.id}") %>
+        <%= link_to(post.location,       "/post/show/#{post.id}") %>
+        <%= link_to(post.control_number, "/post/show/#{post.id}") %>
+        <%= link_to(post.user,           "/post/show/#{post.id}") %>
+        <%= link_to(post.use,            "/post/show/#{post.id}") %>
       </div>
     <% end %>
   </div>

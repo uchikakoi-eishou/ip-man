@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_15_093738) do
+ActiveRecord::Schema.define(version: 2018_09_22_141154) do
 
-  create_table "vlans", force: :cascade do |t|
-    t.text "use"
+  create_table "vlanids", force: :cascade do |t|
+    t.string "ip_address"
+    t.string "location"
+    t.integer "control_number"
+    t.string "user"
+    t.string "use"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
 end
+
+# Test Code
+# Create Test Code
+# Vlanid.create(ip_address:"172.22.061.000", location:"F-12", control_number:"99999999", Vlanid.create(ip_address:"172.22.061.000", location:"F-12", control_number:"99999999", user:"test9", use:"test9)"

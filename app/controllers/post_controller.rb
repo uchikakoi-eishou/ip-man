@@ -1,11 +1,11 @@
 class PostController < ApplicationController
   def index
-    @segment = params[:ip_address3]
-    @posts = Vlan.all
+    @posts = Vlanid.all
+
   end
 
   def show
-    @show = Vlan.find_by(id: params[:id])
+    @post = Vlanid.find_by(id: params[:id])
     
   end
 end
