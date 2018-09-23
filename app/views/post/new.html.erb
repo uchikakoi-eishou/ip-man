@@ -1,0 +1,18 @@
+<div class="main posts-new">
+  <div class="container">
+    <h1 class="form-heading">登録する</h1>
+    <div class="form">
+      <div class="form-body">
+        <%= form_tag("/post/create") do %>
+         <!-- <textarea></textarea> -->
+         <input type="text" name="ip_address">
+         <input type="text" name="location">
+         <input type="text" name="control_number">
+         <input type="text" name="user">
+         <input type="text" name="use">
+         <input type="submit" value="投稿">
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

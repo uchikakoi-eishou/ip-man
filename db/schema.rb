@@ -26,4 +26,4 @@ end
 
 # Test Code
 # Create Test Code
-# Vlanid.create(ip_address:"172.22.061.000", location:"F-12", control_number:"99999999", Vlanid.create(ip_address:"172.22.061.000", location:"F-12", control_number:"99999999", user:"test9", use:"test9)"
+# Vlanid.create(ip_address:"172.022.061.002", location:"F-15", control_number:"99999997", user:"test99", use:"test99")

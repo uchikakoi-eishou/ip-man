@@ -1,11 +1,31 @@
 class PostController < ApplicationController
   def index
-    @posts = Vlanid.all
-
+    segment = params[:segment]
+    if segment == "other"
+      @posts = Vlanid.where('ip_address not like ?', "172.022.___.___")
+    else
+      @posts = Vlanid.where('ip_address like ?', "172.022.#{segment}.___")
+    end
   end
 
   def show
     @post = Vlanid.find_by(id: params[:id])
     
+  end
+
+  def new
+
+  end
+  
+  def create
+    @post = Vlanid.new(ip_address:     params[:ip_address], 
+                       location:       params[:location],
+                       control_number: params[:control_number],
+                       user:           params[:user],
+                       use:            params[:use])
+    @post.save
+    segment = params[:ip_address][8, 3]
+    redirect_to("/post/index/#{segment}")
+
   end
 end
