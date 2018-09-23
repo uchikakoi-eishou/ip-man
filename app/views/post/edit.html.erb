@@ -1,0 +1,17 @@
+<div class="main posts-new">
+  <div class="container">
+    <h1 class="form-heading">編集する</h1>
+    <div class="form">
+      <div class="form-body">
+        <%= form_tag("/post/show/#{@post.id}/update") do %>
+         <input type="text" name="ip_address"     value=<%= @post.ip_address %>>
+         <input type="text" name="location"       value=<%= @post.location %>>
+         <input type="text" name="control_number" value=<%= @post.control_number %>>
+         <input type="text" name="user"           value=<%= @post.user %>>
+         <input type="text" name="use"            value=<%= @post.use %>>
+         <input type="submit" value="修正">
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
