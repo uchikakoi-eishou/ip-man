@@ -23,15 +23,19 @@ class PostController < ApplicationController
                        control_number: params[:control_number],
                        user:           params[:user],
                        use:            params[:use])
-    @post.save
     
-    temp_ip_address = params[:ip_address]
-    check_ip_address = temp_ip_address[0, 8]
-    if check_ip_address == "172.022."
-      temp_segment = temp_ip_address[8, 3]
-      redirect_to("/post/index/#{temp_segment}")
+    if @post.save
+      #check_segment
+      temp_ip_address = params[:ip_address]
+      check_ip_address = temp_ip_address[0, 8]
+      if check_ip_address == "172.022."
+        temp_segment = temp_ip_address[8, 3]
+        redirect_to("/post/index/#{temp_segment}")      
+      else      
+        redirect_to("/post/index/other")      
+      end
     else
-      redirect_to("/post/index/other")
+      render("post/new")
     end
   end
 
@@ -47,9 +51,12 @@ class PostController < ApplicationController
     @post.control_number = params[:control_number]
     @post.user           = params[:user]
     @post.use            = params[:use]
-    @post.save
-
-    redirect_to("/post/show/#{@post.id}")
+    
+    if @post.save
+      redirect_to("/post/show/#{@post.id}")
+    else
+      render("post/edit")
+    end
 
   end
 
