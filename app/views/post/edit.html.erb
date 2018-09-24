@@ -9,12 +9,12 @@
             <%= message %>
           </div>
         <% end %>
-         <input type="text" name="ip_address"     value=<%= @post.ip_address %>>
-         <input type="text" name="location"       value=<%= @post.location %>>
-         <input type="text" name="control_number" value=<%= @post.control_number %>>
-         <input type="text" name="user"           value=<%= @post.user %>>
-         <input type="text" name="use"            value=<%= @post.use %>>
-         <input type="submit" value="修正">
+        <input type="text" name="ip_address"     value=<%= @post.ip_address %>>
+        <input type="text" name="location"       value=<%= @post.location %>>
+        <input type="text" name="control_number" value=<%= @post.control_number %>>
+        <input type="text" name="user"           value=<%= @post.user %>>
+        <input type="text" name="use"            value=<%= @post.use %>>
+        <input type="submit" value="修正">
       </div>
       <div class="post-menus">
         <%= link_to("削除", "/post/show/#{@post.id}/destroy", {method: "post"}) %>

@@ -11,31 +11,35 @@
 
   <body>
     <header>
-     <div class="header-logo">
-    <a href="/">ip-man</a>
-  </div>
-  <ul class="header-menus">
-    <li>
-      <a href="/about">ip-addressとは</a>
-    </li>
-    <li>
-      <%= link_to("061", "/post/index/061") %>
-    </li>
-    <li>
-      <%= link_to("064", "/post/index/064") %>
-    </li>
-    <li>
-      <%= link_to("065", "/post/index/065") %>
-    </li>
-    <li>
-      <%= link_to("その他", "/post/index/other") %>
-    </li>
-    <li>
-      <%= link_to("登録", "/post/new") %>
-    </li>
-  </ul>
-</header>
-
+      <div class="header-logo">
+        <a href="/">ip-man</a>
+      </div>
+      <ul class="header-menus">
+        <li>
+          <a href="/about">ip-addressとは</a>
+        </li>
+        <li>
+          <%= link_to("061", "/post/index/061") %>
+        </li>
+        <li>
+          <%= link_to("064", "/post/index/064") %>
+        </li>
+        <li>
+          <%= link_to("065", "/post/index/065") %>
+        </li>
+        <li>
+          <%= link_to("その他", "/post/index/other") %>
+        </li>
+        <li>
+          <%= link_to("登録", "/post/new") %>
+        </li>
+      </ul>
+    </header>
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
