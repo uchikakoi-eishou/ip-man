@@ -1,13 +1,30 @@
 <div class="main posts-index">
   <div class="container">
+    <ul class="posts-index-item">
+      <li>IPアドレス</li>
+      <li>設置場所</li>
+      <li>管理番号</li>
+      <li>使用者</li>
+      <li>用途</li>
+    </ul>
     <% @posts.each do |post| %>
-      <div class="posts-index-item">
-        <%= link_to(post.ip_address,     "/post/show/#{post.id}") %>
-        <%= link_to(post.location,       "/post/show/#{post.id}") %>
-        <%= link_to(post.control_number, "/post/show/#{post.id}") %>
-        <%= link_to(post.user,           "/post/show/#{post.id}") %>
-        <%= link_to(post.use,            "/post/show/#{post.id}") %>
-      </div>
+      <ul class="posts-index-item">
+        <li>
+          <%= link_to(post.ip_address, "/post/show/#{post.id}") %>
+        </li>
+        <li>
+          <%= link_to(post.location, "/post/show/#{post.id}") %>
+        </li>
+        <li>
+          <%= link_to(post.control_number, "/post/show/#{post.id}") %>
+        </li>
+        <li>
+          <%= link_to(post.user, "/post/show/#{post.id}") %>
+        </li>
+        <li>
+          <%= link_to(post.use, "/post/show/#{post.id}") %>
+        </li>
+      </ul>
     <% end %>
   </div>
 </div>
