@@ -2,9 +2,9 @@ class PostController < ApplicationController
   def index
     temp_segment = params[:segment]
     if temp_segment == "other"
-      @posts = Vlanid.where('ip_address not like ?', "172.022.___.___")
+      @posts = Vlanid.where('ip_address not like ?', "172.022.___.___").order(ip_address: :asc)
     else
-      @posts = Vlanid.where('ip_address like ?', "172.022.#{temp_segment}.___")
+      @posts = Vlanid.where('ip_address like ?', "172.022.#{temp_segment}.___").order(ip_address: :asc)
     end
   end
 
