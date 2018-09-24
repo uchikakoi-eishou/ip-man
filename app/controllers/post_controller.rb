@@ -1,10 +1,10 @@
 class PostController < ApplicationController
   def index
-    segment = params[:segment]
-    if segment == "other"
+    temp_segment = params[:segment]
+    if temp_segment == "other"
       @posts = Vlanid.where('ip_address not like ?', "172.022.___.___")
     else
-      @posts = Vlanid.where('ip_address like ?', "172.022.#{segment}.___")
+      @posts = Vlanid.where('ip_address like ?', "172.022.#{temp_segment}.___")
     end
   end
 
@@ -24,10 +24,15 @@ class PostController < ApplicationController
                        user:           params[:user],
                        use:            params[:use])
     @post.save
-
-    segment = params[:ip_address][8, 3]
-    redirect_to("/post/index/#{segment}")
-
+    
+    temp_ip_address = params[:ip_address]
+    check_ip_address = temp_ip_address[0, 8]
+    if check_ip_address == "172.022."
+      temp_segment = temp_ip_address[8, 3]
+      redirect_to("/post/index/#{temp_segment}")
+    else
+      redirect_to("/post/index/other")
+    end
   end
 
   def edit
@@ -45,6 +50,19 @@ class PostController < ApplicationController
     @post.save
 
     redirect_to("/post/show/#{@post.id}")
+
+  end
+
+  def destroy
+    @post = Vlanid.find_by(id: params[:id])
+    check_ip_address = @post.ip_address[0, 8]
+    if check_ip_address == "172.022."
+      temp_segment = @post.ip_address[8, 3]
+      redirect_to("/post/index/#{temp_segment}")
+    else
+      redirect_to("/post/index/other")
+    end
+    @post.destroy
 
   end
 end

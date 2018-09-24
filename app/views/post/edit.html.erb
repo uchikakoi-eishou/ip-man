@@ -12,6 +12,10 @@
          <input type="submit" value="修正">
         <% end %>
       </div>
+      <div class="post-menus">
+        <%= link_to("削除", "/post/show/#{@post.id}/destroy", {method: "post"}) %>
+      </div>
+
     </div>
   </div>
 </div>
