@@ -1,0 +1,2 @@
+class MSegment < ApplicationRecord
+end
